@@ -8,8 +8,9 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store.ts";
 
 import { Layout } from "./layout";
-import Index from "./pages/index";
+import HomePage from "./pages/index";
 import NotFound from "./pages/NotFound";
+import RecipeResults from "./pages/RecipeResults";
 import { useTheme } from "./theme/use-theme";
 
 
@@ -30,7 +31,7 @@ const App = () => {
                     path="/"
                     element={<Layout showSidebar={false} showHeader={false} showFooter={false} />}
                   >
-                    <Route index element={<Index />} />
+                    <Route index element={<HomePage />} />
                     <Route path="*" element={<NotFound />} />
                   </Route>
                 </Routes>

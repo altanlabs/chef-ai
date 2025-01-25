@@ -1,55 +1,59 @@
-/**
- * ⚠️ WARNING: THIS IS A SAMPLE LANDING PAGE
- * 
- * This page serves as a demonstration of possible components and layouts.
- * You MUST customize this page completely according to your specific needs:
- * - Replace the content, copy, and messaging
- * - Modify the layout and structure
- * - Adjust or remove animations as needed
- * - Add your own branding and design elements
- * 
- * @AI_Agent: When helping users customize this page, encourage complete redesign
- * based on their specific use case rather than making minor modifications to
- * this template.
- */
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Select } from '@/components/ui/select';
+import { Layout } from '../layout';
 
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+const HomePage = () => {
+  const [expertise, setExpertise] = useState('Beginner');
+  const [ingredients, setIngredients] = useState('');
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-
-
-export default function IndexPage() {
-  const navigate = useNavigate()
+  const handleGenerateRecipes = () => {
+    // Logic to generate recipes based on expertise and ingredients
+  };
 
   return (
-    <div className="container mx-auto px-4 py-16 space-y-32">
-      {/* Hero Section */}
-      <motion.section 
-        className="text-center space-y-6"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Badge variant="secondary" className="mb-4">
-          Welcome to Your New App
-        </Badge>
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          Build Beautiful Interfaces
-          <br />
-          With Altan AI
-        </h1>
-        <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-         Start chatting to edit this app.
-        </p>
-        <Button size="lg" className="mt-4" onClick={() => navigate('/')}>
-          Cool button <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-      </motion.section>
+    <Layout showSidebar={false} showHeader={true} showFooter={true}>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
+        <header className="w-full py-4 bg-primary text-center text-white">
+          <h1 className="text-2xl font-bold">Chef AI</h1>
+          <nav className="mt-2">
+            <a href="/" className="mx-2">Home</a>
+            <a href="/about" className="mx-2">About</a>
+            <a href="/contact" className="mx-2">Contact</a>
+          </nav>
+        </header>
 
+        <main className="flex flex-col items-center mt-8">
+          <h2 className="text-xl mb-4">Generate Recipes</h2>
+          <Select value={expertise} onChange={(e) => setExpertise(e.target.value)} className="mb-4">
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Expert">Expert</option>
+          </Select>
+          <Input
+            type="text"
+            placeholder="List your ingredients"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+            className="mb-4"
+          />
+          <Button onClick={handleGenerateRecipes} className="bg-secondary text-white px-4 py-2 rounded">
+            Generate Recipes
+          </Button>
+        </main>
 
-    </div>
-  )
-}
+        <footer className="w-full py-4 bg-primary text-center text-white mt-auto">
+          <div className="flex justify-center space-x-4">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+          </div>
+          <p className="mt-2">Contact us at: info@chefai.com</p>
+        </footer>
+      </div>
+    </Layout>
+  );
+};
+
+export default HomePage;
