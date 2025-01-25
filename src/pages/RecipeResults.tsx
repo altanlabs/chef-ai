@@ -28,7 +28,7 @@ const RecipeResults = () => {
   ];
 
   return (
-    <Layout showSidebar={false} showHeader={true} showFooter={true}>
+    <Layout showSidebar={false} showHeader={true} showFooter={true} sidebarConfig={{ items: [] }} header={false} footer={false}>
       <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
         <header className="w-full py-4 bg-primary text-center text-white">
           <h1 className="text-2xl font-bold">Recipe Results</h1>

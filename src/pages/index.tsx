@@ -13,7 +13,7 @@ const HomePage = () => {
   };
 
   return (
-    <Layout showSidebar={false} showHeader={true} showFooter={true}>
+    <Layout showSidebar={false} showHeader={true} showFooter={true} sidebarConfig={{ items: [] }} header={false} footer={false}>
       <div className="flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
         <header className="w-full py-4 bg-primary text-center text-white">
           <h1 className="text-2xl font-bold">Chef AI</h1>
@@ -26,7 +26,7 @@ const HomePage = () => {
 
         <main className="flex flex-col items-center mt-8">
           <h2 className="text-xl mb-4">Generate Recipes</h2>
-          <Select value={expertise} onChange={(e) => setExpertise(e.target.value)} className="mb-4">
+          <Select value={expertise} onValueChange={(value) => setExpertise(value)} onChange={(e) => setExpertise(e.target.value)} className="mb-4">
             <option value="Beginner">Beginner</option>
             <option value="Intermediate">Intermediate</option>
             <option value="Expert">Expert</option>
