@@ -11,6 +11,7 @@ import { Layout } from "./layout";
 import HomePage from "./pages/index";
 import NotFound from "./pages/NotFound";
 import RecipeResults from "./pages/RecipeResults";
+import RecipeResults from "./pages/RecipeResults";
 import { useTheme } from "./theme/use-theme";
 
 
